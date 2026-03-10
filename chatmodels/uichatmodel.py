@@ -75,6 +75,11 @@ font-weight:700;
 text-align:center;
 }
 
+.default{
+background:#e2e3ff;
+color:#1a1443;
+}
+
 .mode-badge{
 padding:6px 14px;
 border-radius:20px;
@@ -110,11 +115,15 @@ st.sidebar.title("🎭 Personality Mode")
 
 mode_option = st.sidebar.radio(
     "Choose AI personality:",
-    ["Funny", "Sad", "Sarcastic"]
+    ["Default", "Funny", "Sad", "Sarcastic"]
 )
 
 # Mode prompts
-if mode_option == "Funny":
+if mode_option == "Default":
+    system_prompt = "You are a helpful AI assistant who gives clear, informative, and friendly responses."
+    badge = '<span class="mode-badge default">🤖 Default Mode</span>'
+
+elif mode_option == "Funny":
     system_prompt = "You are a funny AI assistant who replies with humor, jokes, and playful tone."
     badge = '<span class="mode-badge funny">😆 Funny Mode</span>'
 
